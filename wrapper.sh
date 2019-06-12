@@ -19,7 +19,9 @@ To: $MAILRCPT
 Date: $DATE
 Subject: $message
 EOF
+  echo $'\r' >> $MAILFILE
   cat $LOGFILE >> $MAILFILE
+  echo $'\r' >> $MAILFILE
   $SENDMAIL $MAILSERVER $MAILSERVERPORT $MAILFILE >/dev/null 2>&1
 }
 
